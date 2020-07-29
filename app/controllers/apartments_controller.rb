@@ -12,6 +12,30 @@ class ApartmentsController < ApplicationController
 
   # POST: /apartments
   post "/apartments" do
+    if params[:building] != "" && params[:unit] != ""
+      @bld = params[:building].upcase
+      @uni = params[:unit].upcase
+      @num = @bld + @uni
+    else
+      redirect to "/apartments/new"
+    end
+    # check if paramms = ""
+
+    @apartment = Apartment.find_by(number: @num)
+
+    if @apartment != nil
+      redirect to "/apartments/#{@apartment.id}"
+    else
+      @apartment = Apartment.create(building: @bld, unit: @uni, number: @num)
+    end
+    
+    # check to see if their input already exists in database
+    # if it does not exist
+    #   create new apartment 
+    #   create apartment_number by joining u & b
+    #   save apartment into database
+    # redirect '/apartments
+      
     redirect "/apartments"
   end
 
