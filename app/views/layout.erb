@@ -3,8 +3,15 @@
     <head>
         <style>
 
+            body {
+                /* background-image: url("https://freefrontend.com/assets/img/css-background-patterns/blueprint-pattern-css3.png"); */
+                background-color: #D6EAF8;
+                }
+         
             .hedges_header {
-                background-color: gray;                
+                background-color: #73C6B6;
+                text-shadow: 2px 2px 8px #000000;                
+                color: #EAFAF1;
                 height: 50px;
                 text-align: center;
                 text-decoration: overline;
@@ -12,25 +19,27 @@
 
             .hedges_header_addresses {
                 
-                background-color: gray;                
+                background-color: #73C6B6;
+                text-shadow: 2px 2px 5px #000000;    
+                color: #EAFAF1;              
                 height: 75px;
                 text-align: center;
             }
 
-            .my_code {
+            /* .my_code {
                 text-align: center;
-            }
+            } */
 
             .my_footer {
                 text-align: center;
-                background-color: gray;
+                background-color: #73C6B6;
                 height: 14px;
             }
 
         </style>
     </head>
     <body>
-
+          
         <div class="hedges_header"> 
             <h1>THE HEDGES</h1>
         </div>
@@ -42,10 +51,10 @@
             <br>   
         </div>
 
-        <div class="my_code">
+        <%# <div class="my_code"> %>
         <%# yield -> INJECT THE REST OF my CODED erbPAGE HERE %>
               <%= yield %> 
-        </div>
+        <%# </div> %>
 
         <div class="my_footer">
             
