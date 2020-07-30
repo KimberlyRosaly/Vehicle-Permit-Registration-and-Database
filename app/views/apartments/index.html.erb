@@ -1,9 +1,9 @@
-<h1>This is the Model's index page.</h1>
+<center><h1>[APARTMENT MODEL INDEX PAGE]</h1></center>
 
-<a href="/apartments/new">CreateApartment</a>
+<a href="/apartments/new" style="float: right;">CreateApartment</a><br>
 
 
-        <center>
+        
 <% @apartments.each do |apartment| %>
         
         <a href="/apartments/<%= apartment.id %>">
@@ -12,4 +12,4 @@
         <br>
 
 <% end %>
-        <center>
+        
