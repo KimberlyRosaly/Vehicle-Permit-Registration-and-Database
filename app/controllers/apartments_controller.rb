@@ -2,6 +2,7 @@ class ApartmentsController < ApplicationController
 
   # GET: /apartments
   get "/apartments" do
+    @apartments = Apartment.all
     erb :"/apartments/index.html"
   end
 
@@ -19,22 +20,16 @@ class ApartmentsController < ApplicationController
     else
       redirect to "/apartments/new"
     end
-    # check if paramms = ""
+    # check if paramms = "" | turn 'em capitolized | make my :NUMBER for the attribute
 
     @apartment = Apartment.find_by(number: @num)
+    # see if the apartment already exists in the database
 
     if @apartment != nil
       redirect to "/apartments/#{@apartment.id}"
     else
       @apartment = Apartment.create(building: @bld, unit: @uni, number: @num)
     end
-    
-    # check to see if their input already exists in database
-    # if it does not exist
-    #   create new apartment 
-    #   create apartment_number by joining u & b
-    #   save apartment into database
-    # redirect '/apartments
       
     redirect "/apartments"
   end

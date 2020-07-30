@@ -1,1 +1,15 @@
 <h1>This is the Model's index page.</h1>
+
+<a href="/apartments/new">CreateApartment</a>
+
+
+        <center>
+<% @apartments.each do |apartment| %>
+        
+        <a href="/apartments/<%= apartment.id %>">
+            <%= "#{apartment.building} - #{apartment.unit}" %>
+        </a>
+        <br>
+
+<% end %>
+        <center>
