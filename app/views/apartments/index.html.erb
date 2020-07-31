@@ -8,7 +8,15 @@
         
         <a href="/apartments/<%= apartment.id %>">
             <%= "#{apartment.building} - #{apartment.unit}" %>
-        </a>
+        </a><br>
+
+        <a href="/apartments/<%= apartment.id %>/edit">---E D I T</a>
+
+
+        <form action="/apartments/<%= apartment.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="d e l e t e">
+        </form>
         <br>
 
 <% end %>

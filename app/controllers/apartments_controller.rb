@@ -41,6 +41,7 @@ class ApartmentsController < ApplicationController
 
   # GET: /apartments/5/edit
   get "/apartments/:id/edit" do
+    @apartment = Apartment.find(params[:id])
     erb :"/apartments/edit.html"
   end
 
@@ -51,6 +52,8 @@ class ApartmentsController < ApplicationController
 
   # DELETE: /apartments/5/delete
   delete "/apartments/:id/delete" do
+    @apartment = Apartment.find(params[:id])
+    @apartment.destroy
     redirect "/apartments"
   end
 end
