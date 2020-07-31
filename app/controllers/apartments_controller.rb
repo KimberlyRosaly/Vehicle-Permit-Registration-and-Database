@@ -36,6 +36,7 @@ class ApartmentsController < ApplicationController
 
   # GET: /apartments/5
   get "/apartments/:id" do
+    @apartment = Apartment.find(params[:id])
     erb :"/apartments/show.html"
   end
 
