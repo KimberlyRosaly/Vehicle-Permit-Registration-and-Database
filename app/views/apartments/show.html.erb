@@ -1,4 +1,4 @@
-<center><h1>[APARTMENT MODEL SHOW PAGE]</h1>
+<center><h1>[APARTMENT <%=@apartment.number%> SHOW PAGE]</h1>
 
 
 BUILDING: 
@@ -6,6 +6,15 @@ BUILDING:
 
 UNIT: 
 <br><%= "#{@apartment.unit}" %><br>
+
+---------------------------------------------------------------
+<br>
+<a href="/apartments/<%= @apartment.id %>/edit"><button>E D I T</button></a>
+
+<form action="/apartments/<%= @apartment.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="d e l e t e">
+</form>
 
 
 </center>
