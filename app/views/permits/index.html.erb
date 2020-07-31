@@ -7,8 +7,10 @@
 <% @permits.each do |permit| %>
         
         <a href="/permits/<%= permit.id %>">
-            <%# <%= "#{permit.apartment.building} - #{permit.apartment.unit}" %> 
-            p e r m i t # : <%= permit.number %>
+            <% @apartment = Apartment.find(permit.apartment_id) %>
+            <%= "#{@apartment.building} - #{@apartment.unit}" %>
+            <br><%= "#{permit.tenant_name}" %>
+            <br> p e r m i t # : <%= permit.number %>
         </a><br>
 
         <a href="/permits/<%= permit.id %>/edit"><button>E D I T</button></a>
