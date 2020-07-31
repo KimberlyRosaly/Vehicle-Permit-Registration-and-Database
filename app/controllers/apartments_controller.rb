@@ -50,8 +50,8 @@ class ApartmentsController < ApplicationController
   patch "/apartments/:id" do
     @apartment = Apartment.find{params[:id]}
     @apartment.update(building: params[:building].upcase, 
-      unit: params[:unit].upcase,
-      number: params[:building].upcase + params[:unit].upcase)
+                      unit: params[:unit].upcase,
+                      number: params[:building].upcase + params[:unit].upcase)
     redirect "/apartments/#{@apartment.id}"
   end
 

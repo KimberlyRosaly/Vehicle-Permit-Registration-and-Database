@@ -2,6 +2,7 @@ class PermitsController < ApplicationController
 
   # GET: /permits
   get "/permits" do
+    @permits = Permit.all
     erb :"/permits/index.html"
   end
 
@@ -17,6 +18,7 @@ class PermitsController < ApplicationController
 
   # GET: /permits/5
   get "/permits/:id" do
+    
     erb :"/permits/show.html"
   end
 
@@ -32,6 +34,8 @@ class PermitsController < ApplicationController
 
   # DELETE: /permits/5/delete
   delete "/permits/:id/delete" do
+    @permit = Permit.find(params[:id])
+    @permit.destroy
     redirect "/permits"
   end
 end

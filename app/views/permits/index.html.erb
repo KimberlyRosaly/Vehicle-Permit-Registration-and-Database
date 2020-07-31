@@ -1,1 +1,25 @@
-<h1>This is the Model's index page.</h1>
+<center><h1>[PERMIT MODEL INDEX PAGE]</h1></center>
+
+<a href="/permits/new" style="float: right;">CreatePermit</a><br>
+
+<center>
+        
+<% @permits.each do |permit| %>
+        
+        <a href="/permits/<%= permit.id %>">
+            <%# <%= "#{permit.apartment.building} - #{permit.apartment.unit}" %> 
+            p e r m i t # : <%= permit.number %>
+        </a><br>
+
+        <a href="/permits/<%= permit.id %>/edit"><button>E D I T</button></a>
+
+
+        <form action="/permits/<%= permit.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="d e l e t e">
+        </form>
+        <br>
+
+<% end %>
+        
+</center>
