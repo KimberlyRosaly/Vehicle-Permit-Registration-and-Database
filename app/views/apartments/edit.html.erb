@@ -1,6 +1,17 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<center><h1>[<%=@apartment.number%>]</h1></center>
 
-<form action="/apartments" method="POST">
+<form action="/apartments/<%= @apartment.id %>" method="post">
     <input type="hidden" value="patch" name="_method">
-    <input type="submit" value="">
+
+        building : 
+        <input type="text" name="building" value="<%=@apartment.building%>"><br>
+        unit : 
+        <input type="text" name="unit" value="<%=@apartment.unit%>">
+    <br>
+    <input type="submit" value="s u b m i t changes">
+</form>
+
+<form action="/apartments/<%= @apartment.id %>/delete" method="post">
+        <input type="hidden" value="delete" name="_method" >
+        <input type="submit" value="d e l e t e">
 </form>
