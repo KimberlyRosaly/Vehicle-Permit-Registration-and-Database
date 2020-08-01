@@ -1,9 +1,11 @@
 <center><h1>[PERMIT MODEL INDEX PAGE]</h1></center>
 
-<a href="/permits/new" style="float: right;">CreatePermit</a><br>
+<a href="/permits/new" style="float: right;"><button>CreatePermit</button></a>
 
 <center>
-        
+<br>
+<br>
+
 <% @permits.each do |permit| %>
         
         <a href="/permits/<%= permit.id %>">

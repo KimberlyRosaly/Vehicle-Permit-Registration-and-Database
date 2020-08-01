@@ -13,12 +13,19 @@ class PermitsController < ApplicationController
 
   # POST: /permits
   post "/permits" do
+    @apartment = Apartment.find_or_create_by(building: params[:building].upcase, unit: params[:unit].upcase, number: params[:building].upcase + params[:unit].upcase)
+    @permit = Permit.create(apartment_id: @apartment.id)
+    params.except(:building, :unit).each do |key, value|
+      @permit.send("#{key}=", value)
+    end
+    @permit.save
     redirect "/permits"
   end
 
   # GET: /permits/5
   get "/permits/:id" do
-    
+    # @permit = Permit.find(params[:id]
+    # @apartment = Apartment.find(@permit[:apartment_id])
     erb :"/permits/show.html"
   end
 
