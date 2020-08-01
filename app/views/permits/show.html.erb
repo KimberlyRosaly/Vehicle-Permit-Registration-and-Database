@@ -1,2 +1,29 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<center><h1>[PERMIT <%=@permit.number%> SHOW PAGE]</h1>
 
+BUILDING: 
+<br><%= "#{@apartment.building}" %><br>
+
+UNIT: 
+<br><%= "#{@apartment.unit}" %><br>
+
+---------------------------------------------------------------
+<br>
+PERMIT #: <%= "#{@permit.number}" %><br>
+Tenant : <%= "#{@permit.tenant_name}" %><br>
+Contact : <%= "#{@permit.contact_number}" %><br>
+---------------------------------------------------------------
+<br> VEHICLE : <br>
+    License Plate : <%= "#{@permit.vehicle_plate}" %><br>
+    Color : <%= "#{@permit.vehicle_color}" %><br>
+    Year : <%= "#{@permit.vehicle_year}" %><br>
+    Make & Model : <%= "#{@permit.vehicle_make_model}" %><br>
+
+<br>
+<a href="/permits/<%= @permit.id %>/edit"><button>E D I T</button></a>
+
+<form action="/permits/<%= @permit.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="d e l e t e">
+</form>
+
+</center>

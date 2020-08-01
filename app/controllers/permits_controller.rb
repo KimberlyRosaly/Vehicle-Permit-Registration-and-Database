@@ -24,8 +24,8 @@ class PermitsController < ApplicationController
 
   # GET: /permits/5
   get "/permits/:id" do
-    # @permit = Permit.find(params[:id]
-    # @apartment = Apartment.find(@permit[:apartment_id])
+    @permit = Permit.find(params[:id])
+    @apartment = Apartment.find(@permit[:apartment_id])
     erb :"/permits/show.html"
   end
 
