@@ -12,8 +12,13 @@ UNIT:
         <% if @ps.length > 0 %>
             
             <% @ps.each do |p| %>
-                <%= p.tenant_name %><br>
-                <%= p.number %><br>
+                <a href="/permits/<%= p.id %>">
+
+                permit # : <%= p.number %><br>
+                </a>
+                tenant name : <%= p.tenant_name %><br>
+                contact : <%= p.contact_number %><br>
+                
 ---------------------------------------------------------------<br>   
             <% end %>
         <% end %>
