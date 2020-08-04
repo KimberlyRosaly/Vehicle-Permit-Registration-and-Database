@@ -36,7 +36,17 @@ class ApartmentsController < ApplicationController
 
   # GET: /apartments/5
   get "/apartments/:id" do
+    
     @apartment = Apartment.find(params[:id])
+    
+    @ps = Permit.where(apartment_id: @apartment.id)
+
+    # if @permits_array is not an empty array
+    #   iterate through array 
+    #   for each permit
+    #      display on show page
+    # end
+
     erb :"/apartments/show.html"
   end
 

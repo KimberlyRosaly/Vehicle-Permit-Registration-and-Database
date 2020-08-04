@@ -7,8 +7,17 @@ BUILDING:
 UNIT: 
 <br><%= "#{@apartment.unit}" %><br>
 
----------------------------------------------------------------
-<br>
+
+---------------------------------------------------------------<br>
+        <% if @ps.length > 0 %>
+            
+            <% @ps.each do |p| %>
+                <%= p.tenant_name %><br>
+                <%= p.number %><br>
+---------------------------------------------------------------<br>   
+            <% end %>
+        <% end %>
+
 <a href="/apartments/<%= @apartment.id %>/edit"><button>E D I T</button></a>
 
 <form action="/apartments/<%= @apartment.id %>/delete" method="post">
