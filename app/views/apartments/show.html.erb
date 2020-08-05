@@ -21,13 +21,16 @@ UNIT:
                 
 ---------------------------------------------------------------<br>   
             <% end %>
+        <% else %>
+                <%= "no permits registered" %><br>
+---------------------------------------------------------------<br>   
         <% end %>
 
-<a href="/apartments/<%= @apartment.id %>/edit"><button>E D I T</button></a>
+<a href="/apartments/<%= @apartment.id %>/edit"><button>E D I T apartment</button></a>
 
 <form action="/apartments/<%= @apartment.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="d e l e t e">
+            <input type="submit" value="d e l e t e apartment">
 </form>
 
 
