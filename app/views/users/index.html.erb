@@ -1,1 +1,13 @@
-<h1>This is the Model's index page.</h1>
+<div class="heading">
+    <h1>U S E R S<br>
+        REGISTERED
+    </h1>
+</div>
+
+<% if @users != nil %>
+    <% @users.each do |user| %>
+        <%= user.username %>
+    <% end %>
+<% else %>
+    <center> NO USERS REGISTERED </center>
+<% end %>

@@ -1,11 +1,13 @@
-<center><h1>[APARTMENT <%=@apartment.number%> SHOW PAGE]</h1>
+<div class="heading">
+<h1>[APARTMENT <%=@apartment.building%> - <%=@apartment.unit%>]</h1>
+</div>
 
-
-BUILDING: 
-<br><%= "#{@apartment.building}" %><br>
-
-UNIT: 
-<br><%= "#{@apartment.unit}" %><br>
+<center>
+B U I L D I N G : 
+<%= "#{@apartment.building}" %>
+<br>
+U N I T :  
+<%= "#{@apartment.unit}" %><br>
 
 
 ---------------------------------------------------------------<br>

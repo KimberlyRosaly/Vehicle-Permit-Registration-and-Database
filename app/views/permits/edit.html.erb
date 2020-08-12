@@ -1,6 +1,7 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
-<center><h1>[<%=@apartment.number%>]</h1></center>
-<center><h1>[PERMIT <%=@permit.number%>]</h1></center>
+<div class="heading">
+<h1>[<%=@apartment.building%>-<%=@apartment.unit%>]
+    <br>[PERMIT# <%=@permit.number%>]</h1>
+</div>
 
 <form action="/permits/<%= @permit.id %>" method="post">
     <input type="hidden" value="patch" name="_method">
