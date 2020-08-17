@@ -10,6 +10,17 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
   end
 
+  helpers do
+    def logged_in?
+        !!current_user
+    end
+
+    def current_user
+        #if current_user exists - then...yeah it exists.. IF NOT - create the instance variable
+       current_user ||= User.find_by(id: session[:user_id])
+    end
+  end
+
   get "/" do
     erb :welcome
   end

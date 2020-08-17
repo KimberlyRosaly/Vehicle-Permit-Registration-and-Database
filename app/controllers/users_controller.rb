@@ -13,8 +13,25 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    @user = User.find_or_create_by(username: params[:username], password: params[:password])
-    redirect "/users"
+    if params[:password] == "" || params[:username] == ""
+      redirect to "/users/new"
+    end    
+    #make sure username does not already exist : user.id = nil
+    @user = User.find_by(username: params[:username])
+    
+    if !@user #.nil? big mike is the best
+      #create user
+      @user = User.create(username: params[:username], password: params[:password])
+      redirect "/users"
+    else
+      "error post /users/new route"
+    end    
+    
+    #log them in  with a session
+    session[:user_id] = @user.id
+    
+    redirect to '/'
+    
   end
 
   # GET: /users/5
@@ -34,6 +51,8 @@ class UsersController < ApplicationController
 
   # DELETE: /users/5/delete
   delete "/users/:id/delete" do
+    @user = User.find(params[:id])
+    @user.destroy
     redirect "/users"
   end
 end

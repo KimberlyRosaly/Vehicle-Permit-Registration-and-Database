@@ -4,20 +4,26 @@
     </h1>
 </div>
 
-<% if @users != nil %>
-    <% @users.each do |user| %>
-        n a m e : <%= user.username %>
-        <br>
-        <a href="/users/<%= user.id %>/edit"><button>E D I T</button></a>
-        <br>
+<center>
 
-    <form action="/users/<%= user.id %>/delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="d e l e t e">
-    </form>
-    <br>    
-    <% end %>
+<% if @users == nil || @users == [] %>
+    no users registered
+    <br>
+    <a href="/users/new"><button>register NEW user</button></a>
 <% else %>
-    <center> NO USERS REGISTERED </center>
+    <% @users.each do |u| %>
+        u s e r n a m e : 
+        <br>
+        <%= u.username %>
+        <br>
+        <a href="/users/<%= u.id %>/edit"><button>E D I T</button></a>
+        <br>
+        <form action="/users/<%= u.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="d e l e t e">
+        </form>
+        <br>
+    <% end %>
 <% end %>
 
+</center>
