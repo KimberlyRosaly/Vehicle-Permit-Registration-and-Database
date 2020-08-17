@@ -6,8 +6,18 @@
 
 <% if @users != nil %>
     <% @users.each do |user| %>
-        <%= user.username %>
+        n a m e : <%= user.username %>
+        <br>
+        <a href="/users/<%= user.id %>/edit"><button>E D I T</button></a>
+        <br>
+
+    <form action="/users/<%= user.id %>/delete" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="d e l e t e">
+    </form>
+    <br>    
     <% end %>
 <% else %>
     <center> NO USERS REGISTERED </center>
 <% end %>
+
