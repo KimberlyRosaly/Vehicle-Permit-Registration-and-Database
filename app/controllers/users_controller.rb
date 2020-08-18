@@ -59,6 +59,20 @@ class UsersController < ApplicationController
   get "/login" do
     erb :"/users/login.html"
   end
+
+  post '/login' do #<----from USER LOG IN
+
+    @user = User.find_by(username: params[:username])
+    #error handling needed - if user isn't found
+    
+    if @user.authenticate(params[:password]) #<---true = correct password
+      session[:user_id] = @user.id #?Yup...this is the act of "logging in"
+      redirect '/'
+    else
+      "error post /login route"
+    end
+
+  end
   
 
 end
