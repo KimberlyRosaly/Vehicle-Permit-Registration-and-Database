@@ -34,6 +34,7 @@
                 text-align: center;
                 background-color: #73C6B6;
                 height: 14px;
+                letter-spacing: 4px;
             }
 
             .heading {
@@ -73,7 +74,7 @@
             <% if !@user %>
                 <h6><a href="/login"> → l o g  i n ← </a></h6>
             <%else%>
-                 <h6><%= "LOGGED IN : #{@user.username}" %></h6>
+                 <h6>LOGGED IN : CURRENT USER : <%= "#{@user.username}" %></h6>
                  <h6><a href="/logout">log out</a></h6>
             <% end %>
         </div>

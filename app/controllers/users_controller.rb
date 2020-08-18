@@ -73,7 +73,30 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-    redirect '/'
+    redirect '/login'
+  end
+
+  get '/signup' do
+    erb :"/users/signup.html"
+  end
+
+  post '/signup' do
+    #validate by checking if params != ""
+    if params[:password] == "" || params[:username] == ""
+      redirect to '/signup'
+    end    
+    #make sure username does not already exist : user.id = nil
+    @user = User.find_by(username: params[:username])    
+    if !@user #.nil? big mike is the best
+      #create user
+      @user = User.create(username: params[:username], password: params[:password])
+      redirect '/'
+    else
+      "error post /signup route"
+    end
+    #log them in  with a session
+    session[:user_id] = @user.id
+    redirect to '/'
   end
   
 
