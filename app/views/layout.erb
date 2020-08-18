@@ -71,7 +71,7 @@
         <div class="my_footer">
             <% @user = current_user %> 
             <% if !@user %>
-                <h6><a href="/login">→ l o g  i n ←</a></h6>
+                <h6><a href="/login"> → l o g  i n ← </a></h6>
             <%else%>
                  <h6><%= "LOGGED IN : #{@user.username}" %></h6>
                  <h6><a href="/logout">log out</a></h6>

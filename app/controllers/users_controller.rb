@@ -55,4 +55,10 @@ class UsersController < ApplicationController
     @user.destroy
     redirect "/users"
   end
+
+  get "/login" do
+    erb :"/users/login.html"
+  end
+  
+
 end
