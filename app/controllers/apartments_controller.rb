@@ -11,6 +11,10 @@ class ApartmentsController < ApplicationController
     erb :"/apartments/new.html"
   end
 
+  get "/apartments/search" do
+    erb :"/apartments/search.html"
+  end
+
   # POST: /apartments
   post "/apartments" do
     if params[:building] != "" && params[:unit] != ""
@@ -29,9 +33,9 @@ class ApartmentsController < ApplicationController
       redirect to "/apartments/#{@apartment.id}"
     else
       @apartment = Apartment.create(building: @bld, unit: @uni, number: @num)
+      redirect to "/apartments/#{@apartment.id}"
     end
       
-    redirect "/apartments"
   end
 
   # GET: /apartments/5
