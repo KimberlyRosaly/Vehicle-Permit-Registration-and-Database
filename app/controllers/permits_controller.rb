@@ -11,6 +11,20 @@ class PermitsController < ApplicationController
     erb :"/permits/new.html"
   end
 
+  get "/permits/search" do
+    erb :"/permits/search.html"
+  end
+
+  post "/permits/lookup" do
+    # if permit number can be found
+    if @permit = Permit.find_by(number: params[:number])
+    #   return mathing permit/id
+      redirect to "/permits/#{@permit.id}"
+    else
+      redirect to "/permits/search"
+    end
+  end
+
   # POST: /permits
   post "/permits" do
     @apartment = Apartment.find_or_create_by(building: params[:building].upcase, unit: params[:unit].upcase, number: params[:building].upcase + params[:unit].upcase)
