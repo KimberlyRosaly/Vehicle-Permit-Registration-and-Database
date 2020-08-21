@@ -5,12 +5,18 @@
 
 <a href="/permits/new" style="float: right;"><button>CreatePermit</button></a>
 
-<center>
 <br>
 <br>
 
+
+
+
+<div class="flex-container">
+
 <% @permits.each do |permit| %>
         
+<div>
+
         <a href="/permits/<%= permit.id %>">
             <% @apartment = Apartment.find(permit.apartment_id) %>
             <%= "#{@apartment.building} - #{@apartment.unit}" %>
@@ -27,6 +33,9 @@
         </form>
         <br>
 
+</div>
+
+
 <% end %>
-        
-</center>
+
+</div>
