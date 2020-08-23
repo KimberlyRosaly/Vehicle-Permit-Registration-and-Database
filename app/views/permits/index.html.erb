@@ -3,7 +3,7 @@
     <h3>(<%=Permit.all.count%>) REGISTRATIONS </h3> 
 </div>
 
-<a href="/permits/new" style="float: right;"><button>CreatePermit</button></a>
+<a href="/permits/new" style="float: right;"><button class="mybutton">CreatePermit</button></a>
 
 <br>
 <br>
@@ -20,16 +20,16 @@
         <a href="/permits/<%= permit.id %>">
             <% @apartment = Apartment.find(permit.apartment_id) %>
             <%= "#{@apartment.building} - #{@apartment.unit}" %>
+            <br> PERMIT # : <%= permit.number %>
             <br><%= "#{permit.tenant_name}" %>
-            <br> p e r m i t # : <%= permit.number %>
         </a><br>
+        <br>
+        <a href="/permits/<%= permit.id %>/edit"><button class="mybutton">E D I T</button></a>
 
-        <a href="/permits/<%= permit.id %>/edit"><button>E D I T</button></a>
-
-
+        <br><br>
         <form action="/permits/<%= permit.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="d e l e t e">
+            <input type="submit" class="mybutton" value="d e l e t e">
         </form>
         <br>
 
