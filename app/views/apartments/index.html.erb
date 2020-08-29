@@ -4,25 +4,36 @@
 </div>
 
 
-<a href="/apartments/new" style="float: right;">CreateApartment</a><br>
+<a href="/apartments/new" style="float: right;"><button class="mybutton">CreateApartment</button></a>
+<br>
+<br>
 
 <center>
-        
+
+<div class="flex-container">
+
+
 <% @apartments.each do |apartment| %>
         
+    <div>
+
         <a href="/apartments/<%= apartment.id %>">
             <%= "#{apartment.building} - #{apartment.unit}" %>
-        </a><br>
+        </a>
 
+    </div>
+    <div>
         <a href="/apartments/<%= apartment.id %>/edit"><button>E D I T</button></a>
-
-
+    </div>
+    <div>
         <form action="/apartments/<%= apartment.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="d e l e t e">
         </form>
-        <br>
+    </div>
 
 <% end %>
-        
+
+</div>
+
 </center>
