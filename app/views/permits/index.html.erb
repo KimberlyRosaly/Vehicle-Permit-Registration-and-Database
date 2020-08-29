@@ -31,8 +31,8 @@
 
             <% @apartment = Apartment.find(permit.apartment_id) %>
             <%= "#{@apartment.building}-#{@apartment.unit}" + " \u2022" %>
-            
-            <%= "#{permit.tenant_name}" + " \u2022" %> 
+
+            <%= "#{permit.tenant_name}" %> 
 
 
         </button></a>

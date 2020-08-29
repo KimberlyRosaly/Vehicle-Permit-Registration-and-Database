@@ -3,31 +3,60 @@
          [ #<%=@permit.number%> ] </h2>
 </div>
 
-<center>
+
+
+    <div class="permit-container">
+
+<div class="first">
+<h2>
 BUILDING: 
-<br><%= "#{@apartment.building}" %><br>
+</h2>
 
+<%= "#{@apartment.building}" %><br>
+
+<h2>
 UNIT: 
-<br><%= "#{@apartment.unit}" %><br>
+</h2>
+<%= "#{@apartment.unit}" %><br>
 
----------------------------------------------------------------
-<br>
-PERMIT #: <%= "#{@permit.number}" %><br>
-Tenant : <%= "#{@permit.tenant_name}" %><br>
-Contact : <%= "#{@permit.contact_number}" %><br>
----------------------------------------------------------------
-<br> VEHICLE : <br>
+<%# div class FIRST %>
+</div>
+
+
+
+
+<div class="second">
+
+    <div class="second-a">
+    <h3> TENANT : </h3>
+    Name : <%= "#{@permit.tenant_name}" %><br>
+    Contact : <%= "#{@permit.contact_number}" %><br>
+    </div>
+
+
+    <div class="second-b">
+    <h3> VEHICLE : </h3>
+    PERMIT #: <%= "#{@permit.number}" %><br>
     License Plate : <%= "#{@permit.vehicle_plate}" %><br>
     Color : <%= "#{@permit.vehicle_color}" %><br>
     Year : <%= "#{@permit.vehicle_year}" %><br>
     Make & Model : <%= "#{@permit.vehicle_make_model}" %><br>
+    </div>
+
+
+<%# div class SECOND %>
+</div>
+
+
+    <%# permit-container %>
+    </div>
+
+
 
 <br>
 <a href="/permits/<%= @permit.id %>/edit"><button>E D I T</button></a>
-
+<br><br>
 <form action="/permits/<%= @permit.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="d e l e t e">
 </form>
-
-</center>
