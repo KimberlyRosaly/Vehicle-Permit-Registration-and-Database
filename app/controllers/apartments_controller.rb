@@ -62,7 +62,7 @@ class ApartmentsController < ApplicationController
 
   # PATCH: /apartments/5
   patch "/apartments/:id" do
-    @apartment = Apartment.find{params[:id]}
+    @apartment = Apartment.find(params[:id])
     @apartment.update(building: params[:building].upcase, 
                       unit: params[:unit].upcase,
                       number: params[:building].upcase + params[:unit].upcase)

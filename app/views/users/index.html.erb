@@ -11,6 +11,10 @@
     <br>
     <a href="/users/new"><button>register NEW user</button></a>
 <% else %>
+    <a href="/users/new" style="float: right;"><button class="mybutton">register NEW user</button></a>
+        <br>
+        <br>
+    
     <% @users.each do |u| %>
         u s e r n a m e : 
         <br>

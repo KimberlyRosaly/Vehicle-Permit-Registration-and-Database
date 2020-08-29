@@ -1,1 +1,24 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<div class="heading">
+<h2> EDIT USER </h2>
+</div>
+
+
+<center>
+<br>
+<h1><%= @user.username %></h1>
+
+<form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" value="patch" name="_method">
+
+    username:
+    <input type="text" name="username" value="<%=@user.username%>">
+    <br>
+    password:
+    <input type="text" name="password" value="ENTER NEW PASSWORD">
+    <br>
+    <input type="submit" value="s u b m i t changes">
+</form>
+
+
+<a href="/users/<%= @user.id %>/delete"><button>D E L E T E user</button></a>
+</center>
