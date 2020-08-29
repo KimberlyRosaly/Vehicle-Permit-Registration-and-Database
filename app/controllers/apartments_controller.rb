@@ -2,8 +2,6 @@ class ApartmentsController < ApplicationController
 
   # GET: /apartments
   get "/apartments" do
-    # TEST THIS OUT LATER TO MAKE SURE ITS SORTS PROPERLY
-    
     @apartments = Apartment.order(number: :asc)
     erb :"/apartments/index.html"
   end

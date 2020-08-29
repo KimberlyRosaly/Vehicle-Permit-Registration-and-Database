@@ -1,8 +1,8 @@
 class PermitsController < ApplicationController
 
   # GET: /permits
-  get "/permits" do
-    @permits = Permit.all
+  get "/permits" do    
+    @permits = Permit.order(number: :asc)
     erb :"/permits/index.html"
   end
 
