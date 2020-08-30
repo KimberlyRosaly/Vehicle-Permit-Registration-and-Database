@@ -1,8 +1,9 @@
-<div class="heading">
+<center>
+<div class="what">
     <h2> [ P E R M I T ]<br>
          [ #<%=@permit.number%> ] </h2>
 </div>
-
+</center>
 
 
     <div class="permit-container">
@@ -54,9 +55,9 @@ UNIT:
 
 
 <br>
-<a href="/permits/<%= @permit.id %>/edit"><button>E D I T</button></a>
+<a href="/permits/<%= @permit.id %>/edit"><button class="mybutton">E D I T</button></a>
 <br><br>
 <form action="/permits/<%= @permit.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="d e l e t e">
+            <input type="submit" value="d e l e t e" class="mydeletebutton">
 </form>

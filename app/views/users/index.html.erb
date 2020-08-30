@@ -20,11 +20,11 @@
         <br>
         <%= u.username %>
         <br>
-        <a href="/users/<%= u.id %>/edit"><button>E D I T</button></a>
+        <a href="/users/<%= u.id %>/edit"><button class="mybutton">E D I T</button></a>
         <br>
         <form action="/users/<%= u.id %>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="d e l e t e">
+            <input type="submit" value="d e l e t e" class="mydeletebutton">
         </form>
         <br>
     <% end %>
