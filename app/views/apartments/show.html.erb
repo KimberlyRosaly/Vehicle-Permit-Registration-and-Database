@@ -1,33 +1,71 @@
-<div class="heading">
-<h1>[APARTMENT <%=@apartment.building%> - <%=@apartment.unit%>]</h1>
+<div class="what">
+      <center><h1>[APARTMENT <%=@apartment.building%> - <%=@apartment.unit%>]</h1></center>
 </div>
 
-<center>
-B U I L D I N G : 
-<%= "#{@apartment.building}" %>
-<br>
-U N I T :  
-<%= "#{@apartment.unit}" %><br>
+
+<div class="apartment-permit-heading">
+      B U I L D I N G : 
+      <u><%= "#{@apartment.building}" %></u>
+      <br>
+      U N I T :  
+      <u><%= "#{@apartment.unit}" %></u>
+      
+</div>
 
 
----------------------------------------------------------------<br>
+<div class="apartment-permit-container">
         <% if @ps.length > 0 %>
             
             <% @ps.each do |p| %>
-                <a href="/permits/<%= p.id %>">
 
-                permit # : <%= p.number %><br>
-                </a>
-                tenant name : <%= p.tenant_name %><br>
-                contact : <%= p.contact_number %><br>
+      <div>
+                <center><h3><a href="/permits/<%= p.id %>">                  
+                → PERMIT:<%= p.number %></a></h3></center>
+
+                  <center><h2>LEASEHOLDER</h2></center>
+
+                <b>NAME:</b>
+                <u><%= p.tenant_name %></u>
+                <br>
+                <b>CONTACT:</b>
+                <u><%= p.contact_number %></u>
+                <br><br>
+
+                  <center><h2>VEHICLE</h2></center>
+
+                <b>PLATE:</b>
+                <u><%= p.vehicle_plate %></u>
+                <br>
+                <b>YEAR:</b>
+                <u><%= p.vehicle_year %></u>
+                <br>
+                <b>COLOR:</b>
+                <u><%= p.vehicle_color %></u>
+                <br>
+                <b>MAKE&MODEL:</b>
+                <u><%= p.vehicle_make_model %></u>
+
+                  
+                 
+
+      </div>
                 
----------------------------------------------------------------<br>   
+
+
             <% end %>
         <% else %>
+                  <div>
+                  <center>
+---------------------------------------------------------------<br>  
                 <%= "no permits registered" %><br>
----------------------------------------------------------------<br>   
+---------------------------------------------------------------<br>
+                  </center>
+                  </div>
         <% end %>
+</div>
 
+
+<br>
 <a href="/apartments/<%= @apartment.id %>/edit"><button class="mybutton">E D I T apartment</button></a>
 
 <form action="/apartments/<%= @apartment.id %>/delete" method="post">
@@ -36,4 +74,3 @@ U N I T :
 </form>
 
 
-</center>
