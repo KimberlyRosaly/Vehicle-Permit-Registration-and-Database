@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     #enable Sinatra Sessions - for UserPassword goodness
     enable :sessions
-    set :session_secret, ENV['SESSION_SECRET']
+    set :session_secret, "stringOfTeXt"
   end
 
   helpers do

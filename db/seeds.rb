@@ -35,5 +35,8 @@ permits.each do |p|
     Permit.create(p)
 end
 
-# phone_num.insert(0, '(').insert(4, ')').insert(8, '-')
-# turn digits into beautiful phone number
+users = [
+    {username: "superintendent", password: "527591"
+    }
+]
+
