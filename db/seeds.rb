@@ -1,3 +1,16 @@
+
+users = [
+    {username: "superintendent", password: "123456789"},
+    {username: "porter", password: "123456789"},
+    {username: "administrator", password: "123456789"}
+]
+
+users.each do |u|
+    User.create(u)
+end
+
+
+
 apartments = [
     {id: 1, building: "401B", unit: "1B"},
     {id: 2, building: "401B", unit: "6B"}
@@ -11,10 +24,6 @@ apartments.each do |a|
     Apartment.create(a)
 end
 
-
-
-
-
 permits = [
     {number: "000908", tenant_name: "Rixin Core", contact_number: "1234567890", 
         vehicle_plate: "XRX", vehicle_color: "Red", vehicle_year: "1989", 
@@ -27,16 +36,9 @@ permits = [
     {number: "898989", tenant_name: "Jenni Em", contact_number: "9997778888", 
         vehicle_plate: "AT8VYN", vehicle_color: "Blue", vehicle_year: "1965", 
         vehicle_make_model: "Trucker Pixie",
-        apartment_id: 1}
-    
+        apartment_id: 1}    
 ]
 
 permits.each do |p|
     Permit.create(p)
 end
-
-users = [
-    {username: "superintendent", password: "527591"
-    }
-]
-

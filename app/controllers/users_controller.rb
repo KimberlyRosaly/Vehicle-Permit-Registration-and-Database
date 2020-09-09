@@ -48,9 +48,10 @@ class UsersController < ApplicationController
 
   # PATCH: /users/5
   patch "/users/:id" do
+    # binding.pry
     @user = User.find(params[:id])
-    @user.update(username: params[:username])
-    redirect "/users/:id"
+    @user.update(username: params[:username], password: params[:password])
+    redirect to "/users/#{@user.id}"
   end
 
   # DELETE: /users/5/delete
@@ -68,9 +69,9 @@ class UsersController < ApplicationController
       if @user = User.find_by(username: params[:username])
         if @user.authenticate(params[:password]) #<---true = correct password
           session[:user_id] = @user.id #?Yup...this is the act of "logging in"
-          redirect '/'
+          redirect to '/'
         else
-          redirect to "login"
+          redirect to "/login"
           #error handling - if password doesn't match user.password
         end
       else

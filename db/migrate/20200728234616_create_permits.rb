@@ -4,6 +4,7 @@ class CreatePermits < ActiveRecord::Migration
       t.string :number
 
       t.integer :apartment_id # ASSOCIATION
+      t.integer :user_id
 
       t.string :tenant_name
       t.string :contact_number
