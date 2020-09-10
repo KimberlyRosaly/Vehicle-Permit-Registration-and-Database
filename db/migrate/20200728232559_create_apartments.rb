@@ -6,7 +6,7 @@ class CreateApartments < ActiveRecord::Migration
       t.string :building
       t.string :unit
 
-      t.integer :user_id #<---USER has many apartments?? IS THIS RIGHT?
+      t.integer :user_id
 
       t.timestamps null: false
     end

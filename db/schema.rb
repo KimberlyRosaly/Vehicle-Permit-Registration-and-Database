@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20200728234705) do
   create_table "permits", force: :cascade do |t|
     t.string   "number"
     t.integer  "apartment_id"
+    t.integer  "user_id"
     t.string   "tenant_name"
     t.string   "contact_number"
     t.string   "vehicle_plate"
